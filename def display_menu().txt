@@ -1,0 +1,66 @@
+def display_menu():
+    print("\nMenu:")
+    print("1. Add element to the list")
+    print("2. Remove element from the list")
+    print("3. Display the list")
+    print("4. Search for an element")
+    print("5. Sort the list")
+    print("6. Find maximum element")
+    print("7. Find minimum element")
+    print("8. Exit")
+
+def main():
+    my_list = []
+    
+    while True:
+        display_menu()
+        choice = input("Enter your choice (1-8): ")
+
+        if choice == '1':
+            element = input("Enter element to add: ")
+            my_list.append(element)
+            print(f"Added '{element}' to the list.")
+
+        elif choice == '2':
+            element = input("Enter element to remove: ")
+            if element in my_list:
+                my_list.remove(element)
+                print(f"Removed '{element}' from the list.")
+            else:
+                print(f"Element '{element}' not found in the list.")
+
+        elif choice == '3':
+            print("Current list:", my_list)
+
+        elif choice == '4':
+            element = input("Enter element to search for: ")
+            if element in my_list:
+                print(f"Element '{element}' found in the list.")
+            else:
+                print(f"Element '{element}' not found in the list.")
+
+        elif choice == '5':
+            my_list.sort()
+            print("List sorted.")
+
+        elif choice == '6':
+            if my_list:
+                print("Maximum element in the list:", max(my_list))
+            else:
+                print("The list is empty.")
+
+        elif choice == '7':
+            if my_list:
+                print("Minimum element in the list:", min(my_list))
+            else:
+                print("The list is empty.")
+
+        elif choice == '8':
+            print("Exiting the program.")
+            break
+
+        else:
+            print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    main()

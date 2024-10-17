@@ -1,0 +1,67 @@
+def display_menu():
+    print("\nMenu:")
+    print("1. Perform operations with Integers")
+    print("2. Perform operations with Floats")
+    print("3. Perform operations with Complex Numbers")
+    print("4. Exit")
+
+def integer_operations():
+    a = int(input("Enter an integer: "))
+    b = int(input("Enter another integer: "))
+    print("\nResults:")
+    print(f"Addition: {a + b}")
+    print(f"Subtraction: {a - b}")
+    print(f"Multiplication: {a * b}")
+    print(f"Division: {a / b}")
+    print(f"Floor Division: {a // b}")
+    print(f"Modulus: {a % b}")
+    print(f"Power: {a ** b}")
+
+def float_operations():
+    a = float(input("Enter a float: "))
+    b = float(input("Enter another float: "))
+    print("\nResults:")
+    print(f"Addition: {a + b}")
+    print(f"Subtraction: {a - b}")
+    print(f"Multiplication: {a * b}")
+    print(f"Division: {a / b}")
+    print(f"Floor Division: {a // b}")
+    print(f"Modulus: {a % b}")
+    print(f"Power: {a ** b}")
+
+def complex_operations():
+    real_part = float(input("Enter the real part of a complex number: "))
+    imag_part = float(input("Enter the imaginary part of a complex number: "))
+    c = complex(real_part, imag_part)
+
+    real_part2 = float(input("Enter the real part of another complex number: "))
+    imag_part2 = float(input("Enter the imaginary part of another complex number: "))
+    d = complex(real_part2, imag_part2)
+
+    print("\nResults:")
+    print(f"Addition: {c + d}")
+    print(f"Subtraction: {c - d}")
+    print(f"Multiplication: {c * d}")
+    print(f"Division: {c / d}")
+    print(f"Absolute value of the first complex number: {abs(c)}")
+    print(f"Absolute value of the second complex number: {abs(d)}")
+
+def main():
+    while True:
+        display_menu()
+        choice = input("Enter your choice (1-4): ")
+
+        if choice == '1':
+            integer_operations()
+        elif choice == '2':
+            float_operations()
+        elif choice == '3':
+            complex_operations()
+        elif choice == '4':
+            print("Exiting the program.")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    main()

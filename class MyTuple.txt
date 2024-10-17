@@ -1,0 +1,76 @@
+class MyTuple:
+    def __init__(self, elements):
+        self.elements = list(elements)  # Convert tuple to a list for flexibility
+
+    def __str__(self):
+        return f"({', '.join(map(str, self.elements))})"
+
+    def add_element(self, element):
+        self.elements.append(element)
+
+    def remove_element(self, element):
+        if element in self.elements:
+            self.elements.remove(element)
+        else:
+            print(f"Element '{element}' not found in the tuple.")
+
+    def access_element(self, index):
+        if 0 <= index < len(self.elements):
+            return self.elements[index]
+        else:
+            return "Index out of range."
+
+    def display(self):
+        return self.__str__()
+
+def main():
+    my_tuple = None
+
+    while True:
+        print("\n--- Tuple Operations Menu ---")
+        print("1. Create Tuple")
+        print("2. Add Element to Tuple")
+        print("3. Access Element from Tuple")
+        print("4. Remove Element from Tuple")
+        print("5. Display Current Tuple")
+        print("6. Exit")
+
+        choice = input("Enter your choice: ")
+
+        if choice == '1':
+            elements = input("Enter elements separated by space: ").split()
+            my_tuple = MyTuple(elements)
+            print("Tuple created.")
+        elif choice == '2':
+            if my_tuple:
+                element = input("Enter the element to add: ")
+                my_tuple.add_element(element)
+                print(f"Element '{element}' added.")
+            else:
+                print("Please create a tuple first.")
+        elif choice == '3':
+            if my_tuple:
+                index = int(input("Enter index of the element to access: "))
+                element = my_tuple.access_element(index)
+                print(f"Element at index {index}: {element}")
+            else:
+                print("Please create a tuple first.")
+        elif choice == '4':
+            if my_tuple:
+                element = input("Enter the element to remove: ")
+                my_tuple.remove_element(element)
+            else:
+                print("Please create a tuple first.")
+        elif choice == '5':
+            if my_tuple:
+                print(f"Current Tuple: {my_tuple}")
+            else:
+                print("Tuple is not created yet.")
+        elif choice == '6':
+            print("Exiting the program.")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    main()
